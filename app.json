@@ -1,0 +1,26 @@
+{
+  "name": "에스에스전력 사진 관리시스템",
+  "description": "건설 현장 사진 및 프로젝트 관리 웹 플랫폼",
+  "repository": "https://github.com/your-username/ss-electric-photo-manager",
+  "logo": "https://node-js-sample.herokuapp.com/node.png",
+  "keywords": ["flask", "python", "construction", "photo-management", "postgresql"],
+  "image": "heroku/python",
+  "addons": [
+    {
+      "plan": "heroku-postgresql:hobby-dev"
+    }
+  ],
+  "env": {
+    "SESSION_SECRET": {
+      "description": "Flask 세션을 위한 비밀 키",
+      "generator": "secret"
+    },
+    "FLASK_ENV": {
+      "description": "Flask 환경 설정",
+      "value": "production"
+    }
+  },
+  "scripts": {
+    "postdeploy": "python -c \"from app import app, db; app.app_context().push(); db.create_all()\""
+  }
+}
